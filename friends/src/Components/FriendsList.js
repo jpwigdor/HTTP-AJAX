@@ -2,14 +2,22 @@ import React from 'react';
 
 import Friend from './Friend';
 
-const FriendsList = (props) => {
-    const { friendsList } = props;
+class FriendsList extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      friends:[]
+    }
+  }
  
+
+  render() {
     return ( 
-        <div className="list-container">
-            {friendsList.map(friend=><Friend friend={friend} key={friend.id} />)}
-        </div> 
+      <div className="list-container">
+        {this.props.friends.map(friend=><Friend friend={friend} key={friend.id} />)}
+      </div> 
     );
+  }
 }
  
 export default FriendsList;
